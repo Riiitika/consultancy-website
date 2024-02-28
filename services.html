@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="assets/SOA5.png">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+    body {
+ background-image: url("assets/HCfU2.png");
+
+}
+nav {
+  height: 80px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+}
+nav img {
+  width: auto;
+  height: 80px;
+  left: 12px;
+}
+nav ul {
+  float: right;
+  margin-left: 25px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 15px;
+}
+nav ul li a {
+  position: relative;
+  font-weight: 500;
+  color: black;
+  font-size: 15px;
+  padding: 5px 0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+nav ul li a:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: #ef4b3f;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s linear;
+}
+nav ul li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+label #btn,
+label #cancel {
+  color: #ef4b3f;
+  font-size: 30px;
+  float: right;
+  line-height: 100px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+@media (max-width: 1118px) {
+  nav img {
+    left: 8%;
+  }
+}
+@media (max-width: 944px) {
+  nav img {
+    left: 6%;
+    top: 40px;
+    width: 130px;
+  }
+  nav ul li a {
+    font-size: 15px;
+  }
+}
+@media (max-width: 860px) {
+  label #btn {
+    display: block;
+  }
+  ul {
+    position: fixed;
+    width: 90%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    top: 120px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 17px;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+  #check:checked ~ label #btn {
+    display: none;
+  }
+  #check:checked ~ label #cancel {
+    display: block;
+  }
+}
+/* navigation end */
+.wrapper{
+  max-width: 1080px;
+  margin: 50px auto;
+  padding: 0 20px;
+  position: relative;
+}
+.wrapper .center-line{
+  position: absolute;
+  height: 100%;
+  width: 4px;
+  background: black;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+}
+.wrapper .row{
+  display: flex;
+}
+.wrapper .row-1{
+  justify-content: flex-start;
+}
+.wrapper .row-2{
+  justify-content: flex-end;
+}
+.wrapper .row section{
+  background: #ece1e1;
+  border-radius: 5px;
+  width: calc(50% - 40px);
+  padding: 20px;
+  position: relative;
+}
+.wrapper .row section::before{
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  background: black;
+  top: 28px;
+  z-index: -1;
+  transform: rotate(45deg);
+}
+.row-1 section::before{
+  right: -7px;
+}
+.row-2 section::before{
+  left: -7px;
+}
+.row section .icon,
+.center-line .scroll-icon{
+  position: absolute;
+  background: black;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ef4b3f;
+  font-size: 17px;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
+}
+.center-line .scroll-icon{
+  bottom: 0px;
+  left: 50%;
+  font-size: 25px;
+  transform: translateX(-50%);
+}
+.row-1 section .icon{
+  top: 15px;
+  right: -60px;
+}
+.row-2 section .icon{
+  top: 15px;
+  left: -60px;
+}
+.row section .details,
+.row section .bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.row section .details .title{
+  font-size: 22px;
+  font-weight: 600;
+}
+.row section p{
+  margin: 10px 0 17px 0;
+}
+.row section .bottom a{
+  text-decoration: none;
+  background: #ef4b3f;
+  color: black;
+  padding: 7px 15px;
+  border-radius: 5px;
+  /* font-size: 17px; */
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+.row section .bottom a:hover{
+  transform: scale(0.97);
+}
+@media(max-width: 790px){
+  .wrapper .center-line{
+    left: 40px;
+  }
+  .wrapper .row{
+    margin: 30px 0 3px 60px;
+  }
+  .wrapper .row section{
+    width: 100%;
+  }
+  .row-1 section::before{
+    left: -7px;
+  }
+  .row-1 section .icon{
+    left: -60px;
+  }
+}
+@media(max-width: 440px){
+  .wrapper .row{
+    margin: 10px 10;
+    margin-right: 10px;
+  }
+}
+ /* footer */
+ footer{
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    background: linear-gradient(to right, #604d4d, #fe2f2f);
+    color: #fff;
+    padding: 100px 0 30px;
+    border-top-left-radius: 125px;
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .row{
+    width: 85%;
+     margin: auto;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: flex-start;
+     justify-content: space-between;
+  }
+  .col{
+    flex-basis: 25%;
+    padding: 10px;
+  }
+  .col:nth-child(2), .col:nth-child(3){
+    flex-basis: 15px;
+  }
+  .logo{
+    width: 250px;
+    margin-bottom: 30px;
+  }
+  .col h3{
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .email-id{
+    width: fit-content;
+    border-bottom: 1px solid #ccc;
+    margin: 20px, 0;
+  }
+  ul li{
+    list-style: none;
+    margin-bottom: 120x;
+  }
+  ul li a{
+    text-decoration: none;
+    color: #fff;
+  }
+  form{
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 50px;
+  }
+  form .far{
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  form input{
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border: 0;
+    outline: none;
+  }
+  form button{
+    background: transparent;
+    border: 0;
+    outline: none;
+  }
+  form button .fa-solid{
+    font-size: 16px;
+    color: #fff;
+  }
+  .social-icon .fa-brands{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    margin: 20px auto;
+  }
+  .copyright{
+    text-align: center;
+  }
+  .underline{
+    width: 100%;
+    height: 5px;
+    background: #000;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+  }
+  .underline span{
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+  }
+  @keyframes moving{
+    0%{
+      left: -20px;
+    }
+    100%{
+      left: 100%;
+    }
+  }
+  @media (max-width: 700px) {
+    footer{
+      bottom: unset;
+    }
+    .col{
+      flex-basis: 100%;
+      
+    }
+    .col:nth-child(2), .col:nth-child(3){
+      flex-basis: 100%;
+  }
+  }
+ /* whatsapp start */
+ .whatsapp{
+  position: sticky;
+  bottom: 40px;
+  left: 20px;
+  z-index: 1;
+}
+/* .whatsapp end */
+   </style>
+</head>
+<body>
+
+     <!-- top bar start -->
+     <div>
+        <div class="top-bar">
+            <span><ion-icon name="call-outline"></ion-icon> 9005558007</span>
+            <ul>
+              <li><a href=""><ion-icon name="logo-facebook"></ion-icon></a></li>
+              <li><a href=""><ion-icon name="logo-linkedin"></ion-icon></a></li>
+              <li><a href=""><ion-icon name="logo-instagram"></ion-icon></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- top bar end -->
+    <!-- navigation start -->
+    <nav class="scroll">
+        <input type="checkbox" id="check">
+        <label for="check"> 
+         <i class="fas fa-bars" id="btn"></i> 
+         <i class="fas fa-times" id="cancel"></i> 
+        </label>
+        <img src="assets/SOA5.png" style="margin-left: 50px;">
+         <ul style="margin-right: 50px;">
+           
+                <li><a href="index.html"><b>Home</b></a></li>
+                <li><a href="about.html"><b>About</b></a></li>
+                <li><a href="services.html"><b>Services</b></a></li>
+                <li><a href="placements.html"><b>Placement</b></a></li>
+                <li><a href="gallery.html"><b>Gallery</b></a></li>
+                <li><a href="privacy.html"><b>Privacy Policy</b></a></li>
+                <li><a href="contact.html"><b>Contact us</b></a></li>
+         </ul>
+  </nav>
+  <div>
+    <img src="assets/our_services.jpg" alt="" style="width: 100%; height: 100%;">
+  </div>
+
+  <div class="wrapper">
+    <div class="center-line">
+      <a href="#" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
+    </div>
+    <div class="row row-1">
+      <section>
+        <i class="icon fas fa-home"></i>
+        <div class="details">
+          <span class="title">Admission Assistance</span>
+        </div>
+        <p>Expert admission assistance guides aspiring students through the complex application process, offering personalized 
+          support to maximize their chances of securing a spot in their desired educational institutions</p>
+      </section>
+    </div>
+    <div class="row row-2">
+      <section>
+        <i class="icon fas fa-star"></i>
+        <div class="details">
+          <span class="title">Visa Guidance</span>
+        </div>
+        <p>Comprehensive visa guidance services streamline the application process, providing invaluable support to individuals 
+          seeking to navigate the intricacies of obtaining the necessary visas for their international ventures.</p>
+      </section>
+    </div>
+    <div class="row row-1">
+      <section>
+        <i class="icon fas fa-rocket"></i>
+        <div class="details">
+          <span class="title">Forex Travel</span>
+        </div>
+        <p>Forex travel solutions empower globetrotters with convenient access to foreign currency,
+           ensuring seamless transactions and optimal exchange rates during their international journeys.</p>
+      </section>
+    </div>
+    <div class="row row-2">
+      <section>
+        <i class="icon fas fa-globe"></i>
+        <div class="details">
+          <span class="title">Career Counselling</span>
+        </div>
+        <p>Career counseling offers personalized guidance, helping individuals explore and align their skills, interests, and aspirations to make informed decisions, 
+          fostering a path of fulfillment and success in their professional journey</p>
+      </section>
+    </div>
+    <div class="row row-1">
+      <section>
+        <i class="icon fas fa-paper-plane"></i>
+        <div class="details">
+          <span class="title">Citizenship Process</span>
+         
+        </div>
+        <p>The citizenship process involves a structured pathway of legal procedures and requirements, enabling individuals to acquire official recognition and 
+          rights as a member of a particular nation, fostering a sense of belonging and participation in civic life..</p>
+      </section>
+    </div>
+    <div class="row row-2">
+      <section>
+        <i class="icon fas fa-map-marker-alt"></i>
+        <div class="details">
+          <span class="title">Profile Analysis</span>
+        </div>
+        <p>Profile analysis delves into a comprehensive examination of an individual's qualifications, skills, and experiences, providing valuable insights for 
+          career planning, recruitment, or academic pursuits to ensure optimal alignment with goals and opportunities.</p>
+      </section>
+    </div>
+  </div>
+      <!--whatsapp-->
+      <div class="whatsapp">
+        <a href=" https://wa.me/447469269591" target="_blank"> <img src="assets/lo" alt="" width="60px"></a>
+   </div>
+   <!-- footer -->
+ <footer>
+    <div class="row">
+        <div class="col">
+            <img src="assets/SOA5.png" alt="logo" class="logo">
+        </div>
+        <div class="col">
+            <h3>Office <div class="underline"><span></span></div></h3>
+            <p>239 B Block</p>
+            <p>Panki, Kanpur</p>
+            <p>U.P, PIN 208020, India</p>
+            <p class="email-id">ambarshukla1000@gmail.com</p>
+  
+            <h4>+91 - 9005558007</h4>
+        </div>
+        <div class="col">
+            <h3>Links <div class="underline"><span></span></div></h3>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Placement</a></a></li>
+            <li><a href="">Contact us</a></li>
+            <li><a href="">Privacy policy</a></li>
+        </ul>
+        </div>
+        
+        <div class="col">
+            <h3>Newsletter <div class="underline"><span></span></div></h3>
+            <form>
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" placeholder=" Enter your email id" required>
+                <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+            <div class="social-icon">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-square-whatsapp"></i>
+                <i class="fa-brands fa-square-instagram"></i>
+  
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p class="copyright">Navyal Softeck Solutions pvt. Ltd.</p>
+  </footer>
+  
+</body>
+</html>
